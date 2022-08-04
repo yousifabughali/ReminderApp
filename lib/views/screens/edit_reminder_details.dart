@@ -1,9 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:reminder_second_project/model/list_model.dart';
 import 'package:reminder_second_project/model/reminder_model.dart';
-import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 
 class EditReminderDetails extends StatefulWidget {
@@ -64,7 +63,6 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           child: SingleChildScrollView(
@@ -78,9 +76,9 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('Cancel')),
-                    const Text(
-                      'Details',
+                        child:  Text('Cancel'.tr())),
+                     Text(
+                      'Details'.tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -90,7 +88,7 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                         onPressed: () {
                           performEdit();
                         },
-                        child: const Text('Add')),
+                        child:  Text('Edit'.tr())),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -133,8 +131,8 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                const Text(
-                  '  Edit the Date and Time if you want',
+                 Text(
+                  '  Edit the Date and Time if you want'.tr(),
                   style: TextStyle(color: Colors.blue),
                 ),
                 const SizedBox(height: 10),
@@ -147,8 +145,8 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                   child: Column(
                     children: [
                       ExpansionTile(
-                        title: const Text(
-                          'Edit the Date and time',
+                        title:  Text(
+                          'Edit the Date and time'.tr(),
                           style: TextStyle(color: Colors.white),
                         ),
                         leading: const Icon(Icons.date_range),
@@ -242,14 +240,14 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
         _titleTextEditing.text.isNotEmpty) {
       return true;
     }
-    showSnackBar(message: 'Enter required data', error: true);
+    showSnackBar(message: 'Enter required data'.tr(), error: true);
     return false;
   }
 
   Future<void> editing() async {
     bool edited = await Provider.of<ReminderProvider>(context, listen: false)
         .update(reminder: reminder);
-    String message = edited ? 'Edited Successfully' : 'Edited failed';
+    String message = edited ? 'Edited Successfully'.tr() : 'Edited failed'.tr();
     showSnackBar(message: message, error: !edited);
     setState(() {
       if (edited) {

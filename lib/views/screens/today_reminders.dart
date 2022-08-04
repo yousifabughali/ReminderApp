@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
@@ -18,18 +19,17 @@ class _TodayRemindersState extends State<TodayReminders> {
     List today=Provider.of<ReminderProvider>(context).reminders.where((element) => element.day?.day==DateTime.now().day).toList();
 
     return Scaffold(
-      backgroundColor: Colors.black87,
       appBar: AppBar(
         leadingWidth: 90,
-        backgroundColor: Colors.black87,
+
         leading: TextButton.icon(
           onPressed: () {
             Navigator.pop(context);
 
           },
-          icon: const Icon(Icons.arrow_back_ios),
-          label: const Text(
-            'Lists',
+          icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
+          label:  Text(
+            'Lists'.tr(),
             style: TextStyle(fontSize: 18),
           ),
         ),
@@ -57,8 +57,8 @@ class _TodayRemindersState extends State<TodayReminders> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Today',
+                     Text(
+                      'Today'.tr(),
                       style: TextStyle(fontSize: 22, color: Colors.blue),
                     ),
                     const SizedBox(
@@ -78,13 +78,10 @@ class _TodayRemindersState extends State<TodayReminders> {
                       },
                     ),
 
-                    OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.add_circle,color: Colors.grey,), label: const Text('')),
-
                   ],
                 ),
               ),
             ),
-            TextButton.icon(onPressed: (){}, label: const Text('New Reminder'),icon: const Icon(Icons.add_circle),)
           ],
         ),
       ),

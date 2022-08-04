@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
@@ -48,12 +49,12 @@ class _ReminderItemState extends State<ReminderItem> {
             builder: (BuildContext context) {
               return AlertDialog(
                 backgroundColor: Colors.black,
-                title: const Text(
-                  "Delete Confirmation",
+                title:  Text(
+                  "Delete Confirmation".tr(),
                   style: TextStyle(color: Colors.white),
                 ),
-                content: const Text(
-                  "Are you sure you want to delete this item?",
+                content:  Text(
+                  "Are you sure you want to delete this item?".tr(),
                   style: TextStyle(color: Colors.white),
                 ),
                 actions: <Widget>[
@@ -63,15 +64,15 @@ class _ReminderItemState extends State<ReminderItem> {
                           .delete(id: widget.id);
                       Navigator.pop(context);
                     },
-                    child: const Text(
-                      "Delete",
+                    child:  Text(
+                      "Delete".tr(),
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text(
-                      "Cancel",
+                    child:  Text(
+                      "Cancel".tr(),
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -86,9 +87,9 @@ class _ReminderItemState extends State<ReminderItem> {
             padding: const EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
+              children:  [
                 Icon(Icons.delete, color: Colors.white),
-                Text('Move to trash', style: TextStyle(color: Colors.white)),
+                Text('Move to trash'.tr(), style: TextStyle(color: Colors.white)),
               ],
             ),
           ),
@@ -104,24 +105,24 @@ class _ReminderItemState extends State<ReminderItem> {
           ),
           child: Row(
             children: [
-              Checkbox(
-                  value: false,
-                  onChanged: (_) {},
-                  side: BorderSide(color: Colors.white)),
+              // Checkbox(
+              //     value: false,
+              //     onChanged: (_) {},
+              //     side: BorderSide(color: Colors.white)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.title,
-                    style: const TextStyle(color: Colors.white, fontSize: 20),
+                    style: const TextStyle( fontSize: 20),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     ' ${widget.content}',
-                    style: const TextStyle(color: Colors.white),
+                    // style: const TextStyle(color: Colors.white),
                   ),
                   SizedBox(
                     height: 10,
@@ -136,7 +137,7 @@ class _ReminderItemState extends State<ReminderItem> {
                   ),
                   Text(
                     widget.day != null ? widget.day.toString() : '',
-                    style: const TextStyle(color: Colors.white),
+                    // style: const TextStyle(color: Colors.white),
                   ),
                 ],
               ),

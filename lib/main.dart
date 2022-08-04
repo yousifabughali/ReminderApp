@@ -2,20 +2,22 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/db/create_db.dart';
+import 'package:reminder_second_project/notifications/notification_api.dart';
 import 'package:reminder_second_project/providers/change_dark.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 import 'package:reminder_second_project/views/screens/all_reminders_screen.dart';
 import 'package:reminder_second_project/views/screens/home_screen.dart';
-import 'package:reminder_second_project/views/screens/item_list_screen.dart';
 import 'package:reminder_second_project/views/screens/scheduled.dart';
 import 'package:reminder_second_project/views/screens/spalsh_screen.dart';
+import 'package:reminder_second_project/views/screens/splash_screen.dart';
 import 'package:reminder_second_project/views/screens/today_reminders.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await DbProvider().initDb();
+  NotificationService().initNotification();
 
   runApp(
     EasyLocalization(
@@ -32,6 +34,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {

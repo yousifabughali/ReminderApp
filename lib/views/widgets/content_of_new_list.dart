@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
@@ -65,7 +66,7 @@ class _AddNewListState extends State<AddNewList> {
             Container(
               height: MediaQuery.of(context).size.height / 4.2,
               decoration: BoxDecoration(
-                color: Colors.grey.shade800,
+                color: Colors.blue.shade300,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Padding(
@@ -92,13 +93,14 @@ class _AddNewListState extends State<AddNewList> {
                     TextField(
                       textAlign: TextAlign.center,
                       controller: _titleTextEditing,
+                      style: TextStyle(color: Colors.blue),
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.grey.shade600,
+                        fillColor: Colors.blue.shade100,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        hintText: 'List Name',
+                        hintText: 'List Name'.tr(),
                       ),
                     ),
                   ],
@@ -111,7 +113,7 @@ class _AddNewListState extends State<AddNewList> {
             Container(
               height: MediaQuery.of(context).size.height / 9,
               decoration: BoxDecoration(
-                color: Colors.grey.shade800,
+                color: Colors.blue.shade100,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Padding(

@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 15,
                 ),
                 Text(
-                  'Reminder',
+                  'Reminder.tr()',
                   style: TextStyle(
                     fontFamily: 'Open Sans',
                     color: Colors.grey.shade800,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:reminder_second_project/notifications/notification_api.dart';
 import 'package:reminder_second_project/providers/change_dark.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
@@ -8,9 +9,10 @@ import 'package:reminder_second_project/views/widgets/content_of_new_list.dart';
 import 'package:reminder_second_project/views/widgets/content_of_new_reminder.dart';
 import 'package:reminder_second_project/views/widgets/hs_custom_card_view.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:reminder_second_project/views/widgets/reminder_item.dart';
 
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget{
   HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,12 +21,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         elevation: 0,
         leading: Switch(
           activeColor: Colors.blue,
@@ -34,16 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              'Edit',
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.blue,
-              ),
-            ),
-          ),
+          // TextButton(
+          //   onPressed: () {},
+          //   child: const Text(
+          //     'Edit',
+          //     style: TextStyle(
+          //       fontSize: 15,
+          //       color: Colors.blue,
+          //     ),
+          //   ),
+          // ),
           IconButton(onPressed: (){
             if(context.locale.toString()=='ar'){
               context.setLocale(Locale('en',));
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .of<ReminderProvider>(context)
                                     .reminders
                                     .length,
-                                nameOnTheCard: 'All'),
+                                nameOnTheCard: 'All'.tr()),
                           ),
                           const SizedBox(
                             width: 10,
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .reminders
                                     .where((element) => element.day != null)
                                     .length,
-                                nameOnTheCard: 'Scheduled'),
+                                nameOnTheCard: 'Scheduled'.tr()),
                           ),
                         ],
                       ),
@@ -114,19 +115,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .now()
                                     .day)
                                     .length,
-                                nameOnTheCard: 'Today'),
+                                nameOnTheCard: 'Today'.tr()),
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text(
-                        ' My Lists',
-                        style: TextStyle(
+                       Text(
+                        ' My Lists'.tr(),
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
-                            color: Colors.white),
+                            color: Colors.blue),
                       ),
                       const SizedBox(
                         height: 10,
@@ -138,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             .size
                             .width,
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade900,
+                          color: Colors.blue,
                           borderRadius: BorderRadius.circular(14),
                           //TODO: COMPLETE list view builder
                         ),
@@ -182,16 +183,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.blue,
                     size: 18,
                   ),
-                  label: const Text(
-                    'New Reminder',
-                    style: TextStyle(color: Colors.blue, fontSize: 18),
+                  label:  Text(
+                    'New Reminder'.tr(),
+                    style: const TextStyle(color: Colors.blue, fontSize: 18),
                   ),
                 ),
                 TextButton(
                     onPressed: () {
                       _showBottomSheet(context, AddNewList());
                     },
-                    child: const Text('New List')),
+                    child:  Text('New List'.tr(),style: const TextStyle(color: Colors.blue, fontSize: 18))),
               ],
             ),
           ],
@@ -204,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.black87.withOpacity(0.95),
+      backgroundColor: Colors.white.withOpacity(0.95),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0)),

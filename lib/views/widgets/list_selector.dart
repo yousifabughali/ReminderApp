@@ -22,7 +22,7 @@ class _ListSelectorState extends State<ListSelector> {
         width: double.infinity,
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.grey.shade800.withOpacity(0.90),
+          color: Colors.blue.withOpacity(0.90),
           borderRadius: BorderRadius.circular(14),
         ),
         child: ListView.builder(

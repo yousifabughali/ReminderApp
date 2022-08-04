@@ -1,12 +1,30 @@
 {
-  "app_name": "تطبيق مذكرات" ,
-  "New Note": "إضافة مذكرة",
-  "Edit Note": "تعديل مذكرة",
+  "app_name": "تذكير",
+  "Edit": "تعديل",
   "Delete": "حذف",
-  "Duplicate": "تكرار",
-  "Share": "مشاركة",
-  "Enter the title": "أدخل العنوان",
-  "Enter the Content": "أدخل المحتوى"
+  "All": "الكل",
+  "Lists": "القائمة",
+  "Cancel": "إالغاء",
+  "Details": "تفاصيل",
+  "  Edit the Date and Time if you want": "تعديل التاريخ والوقت ",
+  "Edit the Date and time": "تعديل التاريخ والوقت ",
+  "Enter required data": "أدخل البيانات المطلوبة",
+  "Edited Successfully": "تم التعديل بنجاح",
+  "Edited failed": "فشل التعديل",
+  "Scheduled": "مجدولة",
+  "Today": "اليوم",
+  " My Lists": " قوائمي",
+  "New Reminder": "تذكير جديد",
+  "New List": "قائمة جديدة",
+  "Created Successfully": "تم الإنشاء بنجاح ",
+  "Created failed": "فشل الإنشاء",
+  "Move to trash": "نقل إلى سلة المحذوفات",
+  "Delete Confirmation": "تأكيد الحذف",
+  "Are you sure you want to delete this item?": "هل تود حقا حذف هذا العنصر؟",
+  "Tap to Select the List": "اختر القائمة",
+  "Date and time":"الوقت والتاريخ",
+  "Add":"إضافة",
+  "Schedule your reminder":"جدولة التذكير"
 
 
 

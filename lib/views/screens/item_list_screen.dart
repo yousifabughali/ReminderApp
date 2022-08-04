@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
@@ -16,31 +17,29 @@ class _ItemListScreenState extends State<ItemListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
       appBar: AppBar(
         leadingWidth: 90,
-        backgroundColor: Colors.black87,
         centerTitle: true,
         leading: TextButton.icon(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios),
-          label: const Text(
-            'Lists',
-            style:  TextStyle(fontSize: 18),
+          icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
+          label:  Text(
+            'Lists'.tr(),
+            style:  const TextStyle(fontSize: 18),
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.blue,
-              size: 25,
-            ),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {},
+        //     icon: const Icon(
+        //       Icons.more_horiz_rounded,
+        //       color: Colors.blue,
+        //       size: 25,
+        //     ),
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 5),
@@ -66,10 +65,10 @@ class _ItemListScreenState extends State<ItemListScreen> {
                     title: Provider.of<ReminderProvider>(context).reminders[index].title,
                     content: Provider.of<ReminderProvider>(context).reminders[index].content,
                     day: Provider.of<ReminderProvider>(context).reminders[index].day,
+                    listId: Provider.of<ReminderProvider>(context).reminders[index].listId,
                   );
                 },
               ),
-              OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.add_circle,color: Colors.grey,), label: const Text('')),
             ],
           ),
         ),

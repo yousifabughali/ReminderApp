@@ -30,7 +30,7 @@ class CustomHomeScreenCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
         height: MediaQuery.of(context).size.height / 7,
         decoration: BoxDecoration(
-          color: Colors.grey.shade900,
+          color: Colors.blue,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -54,13 +54,13 @@ class CustomHomeScreenCard extends StatelessWidget {
                 ),
                 Text(
                   count.toString(),
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
               ],
             ),
             Text(
               nameOnTheCard,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
             ),
           ],
         ),

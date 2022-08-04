@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
 import 'package:reminder_second_project/model/reminder_model.dart';
+import 'package:reminder_second_project/notifications/notification_api.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 import 'package:reminder_second_project/views/widgets/Item_of_list.dart';
@@ -48,7 +50,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    widget.listId = Provider.of<ListProvider>(context).list.first;
+    if(widget.listId != null) widget.listId= Provider.of<ListProvider>(context).list.first;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -63,7 +65,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Cancel'),
+                    child: Text('Cancel'.tr()),
                   ),
                   //TODO: modifying the title of the content (Edit, New)
                   // Text(
@@ -77,7 +79,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                       onPressed: () async {
                         performSave();
                       },
-                      child: const Text('Add')),
+                      child:  Text('Add'.tr())),
                 ],
               ),
               const SizedBox(height: 10),
@@ -85,7 +87,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade800.withOpacity(0.90),
+                  color: Colors.blue.withOpacity(0.90),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: SingleChildScrollView(
@@ -103,7 +105,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                         ),
                       ),
                       const Divider(
-                        color: Colors.black87,
+                        color: Colors.white,
                       ),
                       TextFormField(
                         maxLines: 4,
@@ -122,22 +124,22 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
               ),
               const SizedBox(height: 15),
               // Time
-              const Text(
-                '  Schedule your reminder',
+               Text(
+                '  Schedule your reminder'.tr(),
                 style: TextStyle(color: Colors.blue),
               ),
               const SizedBox(height: 10),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade800.withOpacity(0.90),
+                  color: Colors.blue.withOpacity(0.90),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Column(
                   children: [
                     ExpansionTile(
-                      title: const Text(
-                        'Date and time',
+                      title:  Text(
+                        'Date and time'.tr(),
                         style: TextStyle(color: Colors.white),
                       ),
                       leading: const Icon(Icons.date_range),
@@ -149,6 +151,8 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                             onDateTimeChanged: (DateTime value) {
                               widget.day = value;
                             },
+
+
                           ),
                         ),
                       ],
@@ -165,14 +169,14 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                 height: 50,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade800.withOpacity(0.90),
+                  color: Colors.blue.withOpacity(0.90),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Row(
                   children: [
                     Text(
-                      'Tap to Select the List',
-                      style: TextStyle(color: Colors.white),
+                      'Tap to Select the List'.tr(),
+                      style: TextStyle(color: Colors.blue),
                     ),
                     // Text(result == null
                     //     ? Provider.of<ListProvider>(context).list.first.title
@@ -182,27 +186,26 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                     Spacer(),
 
 
-                    SizedBox(
-                      width: 101,
-                      child: DropdownButton<ListModel>(
-                        hint: Text('Reminders'),
-                        underline: SizedBox(),
-                        value: widget.listId,
-                        items: Provider.of<ListProvider>(context).list.map((ListModel value) {
-                          return DropdownMenuItem<ListModel>(
-                            value: value,
-                            child: Text(value.title),
-                          );
-                        }).toList(),
+                    DropdownButton<ListModel>(
+                      hint: Text('Reminders'),
+                      underline: SizedBox(),
+                      value: widget.listId,
+                      items: Provider.of<ListProvider>(context).list.map((ListModel value) {
+                        return DropdownMenuItem<ListModel>(
+                          value: value,
+                          child: Text(value.title),
+                        );
+                      }).toList(),
 
-                        onChanged: (v){
-                          setState((){
-                            widget.listId=v;
-                          });
+                      onChanged: (v){
+                        setState((){
+                          widget.listId=v;
+                          NotificationService().showNotification(
+                              1, "Reminder App", _titleTextEditing.text,widget.day);
+                        });
 
-                        },
+                      },
 
-                      ),
                     ),
                   ],
 
@@ -216,6 +219,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
   }
 
   Future<void> performSave() async {
+
     if (CheckData()) {
       await save();
     }
@@ -226,7 +230,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
         _titleTextEditing.text.isNotEmpty) {
       return true;
     }
-    showSnackBar(message: 'Enter required data', error: true);
+    showSnackBar(message: 'Enter required data'.tr(), error: true);
     return false;
   }
 
@@ -247,7 +251,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
       clear();
       Navigator.pop(context);
     }
-    String message = created ? 'Created Successfully' : 'Created failed';
+    String message = created ? 'Created Successfully'.tr() : 'Created failed'.tr();
     showSnackBar(message: message, error: !created);
   }
 
