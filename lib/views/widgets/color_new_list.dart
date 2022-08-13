@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class ColorPicker extends StatelessWidget{
@@ -19,8 +20,8 @@ class ColorPicker extends StatelessWidget{
         function(color);
       },
       child: Container(
-        width: 40,
-        height: 40,
+        width: 40.w,
+        height: 40.h,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(50),

@@ -6,7 +6,7 @@
   "Lists": "Lists",
   "Cancel": "Cancel",
   "Details": "Details",
-  "  Edit the Date and Time if you want": "  Edit the Date and Time if you want",
+  "Edit the Date and Time if you want": "  Edit the Date and Time if you want",
   "Edit the Date and time": "Edit the Date and time",
   "Enter required data": "Enter required data",
   "Edited Successfully": "Edited Successfully",
@@ -25,7 +25,9 @@
   "Tap to Select the List": "Tap to Select the List",
   "Date and time":"Date and time",
   "Add":"Add",
-  "Schedule your reminder":"  Schedule your reminder"
+  "Schedule your reminder":"Schedule your reminder",
+  "Title":"Title",
+  "Note":"Note"
 
 
 

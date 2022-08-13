@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
@@ -117,15 +118,15 @@ class _ReminderItemState extends State<ReminderItem> {
                     widget.title,
                     style: const TextStyle( fontSize: 20),
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   Text(
                     ' ${widget.content}',
                     // style: const TextStyle(color: Colors.white),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                 ],
               ),
@@ -133,7 +134,7 @@ class _ReminderItemState extends State<ReminderItem> {
               Column(
                 children: [
                   SizedBox(
-                    height: 18,
+                    height: 18.h,
                   ),
                   Text(
                     widget.day != null ? widget.day.toString() : '',

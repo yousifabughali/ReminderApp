@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:reminder_second_project/notifications/notification_api.dart';
 import 'package:reminder_second_project/providers/change_dark.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
@@ -9,7 +9,6 @@ import 'package:reminder_second_project/views/widgets/content_of_new_list.dart';
 import 'package:reminder_second_project/views/widgets/content_of_new_reminder.dart';
 import 'package:reminder_second_project/views/widgets/hs_custom_card_view.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:reminder_second_project/views/widgets/reminder_item.dart';
 
 
 class HomeScreen extends StatefulWidget{
@@ -80,8 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .length,
                                 nameOnTheCard: 'All'.tr()),
                           ),
-                          const SizedBox(
-                            width: 10,
+                           SizedBox(
+                            width: 10.w,
                           ),
                           Expanded(
                             child: CustomHomeScreenCard(
@@ -97,8 +96,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       Row(
                         children: [
@@ -119,8 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                        Text(
                         ' My Lists'.tr(),
@@ -129,15 +128,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 22,
                             color: Colors.blue),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
 
                       Container(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(14),
@@ -205,17 +201,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white.withOpacity(0.95),
+      backgroundColor: Provider.of<ChangeDark>(context,listen: false).isDark==true?Colors.black.withOpacity(0.95):Colors.white.withOpacity(0.95),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0)),
       ),
       builder: (BuildContext context) {
         return SizedBox(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height * 0.91,
+          height: 550.h,
           child: widget,
         );
       },

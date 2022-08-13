@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 
 class SplashScreen extends StatefulWidget {
-   SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({Key? key}) : super(key: key);
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 15,
                 ),
                 Text(
-                  'Reminder.tr()',
+                  'Reminder'.tr(),
                   style: TextStyle(
                     fontFamily: 'Open Sans',
                     color: Colors.grey.shade800,

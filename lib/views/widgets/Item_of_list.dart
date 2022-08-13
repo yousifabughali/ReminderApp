@@ -34,8 +34,8 @@ class _MyListWidgetState extends State<MyListWidget> {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Container(
-              height:35,
-              width: 35,
+              height:35.h,
+              width: 35.h,
               margin: EdgeInsets.symmetric(vertical: 5,),
               decoration: BoxDecoration(
                 color: widget.color,

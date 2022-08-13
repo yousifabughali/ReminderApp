@@ -6,7 +6,7 @@
   "Lists": "القائمة",
   "Cancel": "إالغاء",
   "Details": "تفاصيل",
-  "  Edit the Date and Time if you want": "تعديل التاريخ والوقت ",
+  "Edit the Date and Time if you want": "تعديل التاريخ والوقت ",
   "Edit the Date and time": "تعديل التاريخ والوقت ",
   "Enter required data": "أدخل البيانات المطلوبة",
   "Edited Successfully": "تم التعديل بنجاح",
@@ -24,7 +24,9 @@
   "Tap to Select the List": "اختر القائمة",
   "Date and time":"الوقت والتاريخ",
   "Add":"إضافة",
-  "Schedule your reminder":"جدولة التذكير"
+  "Schedule your reminder":"جدولة التذكير",
+  "Note":"المحتوى",
+  "Title":"العنوان"
 
 
 

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
 import 'package:reminder_second_project/providers/db_list_provider.dart';
@@ -64,7 +65,7 @@ class _AddNewListState extends State<AddNewList> {
             ),
             const SizedBox(height: 10),
             Container(
-              height: MediaQuery.of(context).size.height / 4.2,
+              height: 170.h,
               decoration: BoxDecoration(
                 color: Colors.blue.shade300,
                 borderRadius: BorderRadius.circular(14),
@@ -75,8 +76,8 @@ class _AddNewListState extends State<AddNewList> {
                   children: [
                     Center(
                       child: Container(
-                        width: 60,
-                        height: 60,
+                        width: 60.w,
+                        height: 60.h,
                         decoration: BoxDecoration(
                           color: _color,
                           borderRadius: BorderRadius.circular(50),
@@ -87,8 +88,8 @@ class _AddNewListState extends State<AddNewList> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     TextField(
                       textAlign: TextAlign.center,
@@ -111,7 +112,7 @@ class _AddNewListState extends State<AddNewList> {
               height: 10,
             ),
             Container(
-              height: MediaQuery.of(context).size.height / 9,
+              height: 70.h,
               decoration: BoxDecoration(
                 color: Colors.blue.shade100,
                 borderRadius: BorderRadius.circular(14),

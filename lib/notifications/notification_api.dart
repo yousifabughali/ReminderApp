@@ -38,12 +38,12 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-  Future<void> showNotification(int id, String title, String body,DateTime? value) async {
-    await flutterLocalNotificationsPlugin.zonedSchedule(
+  Future<void> showNotification(int id, String title, String body) async {
+    await flutterLocalNotificationsPlugin.show(
       id,
       title,
       body,
-      tz.TZDateTime.from(value!,tz.local),//schedule the notification to show after 2 seconds.
+      // tz.TZDateTime.from(value!,tz.local),//schedule the notification to show after 2 seconds.
       const NotificationDetails(
         // Android details
         android: AndroidNotificationDetails('main_channel', 'Main Channel',
@@ -59,11 +59,11 @@ class NotificationService {
         ),
       ),
 
-      // Type of time interpretation
-      uiLocalNotificationDateInterpretation:
-      UILocalNotificationDateInterpretation.absoluteTime,
-      androidAllowWhileIdle:
-      true, // To show notification even when the app is closed
+      // // Type of time interpretation
+      // uiLocalNotificationDateInterpretation:
+      // UILocalNotificationDateInterpretation.absoluteTime,
+      // androidAllowWhileIdle:
+      // true, // To show notification even when the app is closed
     );
   }
 }

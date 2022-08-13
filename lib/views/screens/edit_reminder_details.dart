@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/reminder_model.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
@@ -64,7 +65,7 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          padding:  EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,11 +92,11 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                         child:  Text('Edit'.tr())),
                   ],
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade800.withOpacity(0.90),
+                    color: Colors.blue.withOpacity(0.90),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: SingleChildScrollView(
@@ -130,16 +131,16 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 15),
+                 SizedBox(height: 15.h),
                  Text(
-                  '  Edit the Date and Time if you want'.tr(),
+                  'Edit the Date and Time if you want'.tr(),
                   style: TextStyle(color: Colors.blue),
                 ),
-                const SizedBox(height: 10),
+                 SizedBox(height: 10.h),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade800.withOpacity(0.90),
+                    color: Colors.blue.withOpacity(0.90),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Column(
@@ -147,12 +148,12 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                       ExpansionTile(
                         title:  Text(
                           'Edit the Date and time'.tr(),
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                         ),
                         leading: const Icon(Icons.date_range),
                         children: [
                           SizedBox(
-                            height: 200,
+                            height: 180.h,
                             child: CupertinoDatePicker(
                               initialDateTime: widget.day,
                               onDateTimeChanged: (DateTime value) {
@@ -165,8 +166,8 @@ class _EditReminderDetailsState extends State<EditReminderDetails> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 10.h,
                 ),
                 //TODO
                 // Container(

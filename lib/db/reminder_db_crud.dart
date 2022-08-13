@@ -13,10 +13,16 @@ class ReminderDbController{
   }
 
   Future<bool> delete(int id) async {
-    int countsOfDeletedRows= await database.delete('reminder',where: 'id= ?',whereArgs: [id]);
+    int countsOfDeletedRows= await database.delete('reminder',where: 'Id= ?',whereArgs: [id]);
     print(countsOfDeletedRows>0);
     return countsOfDeletedRows > 0;
   }
+  Future<bool> deleteByList(int id) async {
+    int countsOfDeletedRows= await database.delete('reminder',where: 'listId= ?',whereArgs: [id]);
+    print(countsOfDeletedRows>0);
+    return countsOfDeletedRows > 0;
+  }
+
 
 
   Future<List<ReminderModel>> read() async {

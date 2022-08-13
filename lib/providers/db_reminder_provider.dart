@@ -44,7 +44,7 @@ class ReminderProvider extends ChangeNotifier{
     return deleted;
   }
   Future<bool> deletedByList({required int id}) async{
-    bool deleted = await _remindersDbController.delete(id);
+    bool deleted = await _remindersDbController.deleteByList(id);
     if(deleted){
       reminders.removeWhere((element) => element.listId==id);
       notifyListeners();

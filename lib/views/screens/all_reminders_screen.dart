@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 import 'package:reminder_second_project/views/widgets/reminder_item.dart';
@@ -19,7 +20,7 @@ class _AllRemindersScreenState extends State<AllRemindersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 90,
+        leadingWidth: 100.h,
         title: Text('All'.tr()),
         centerTitle: true,
         leading: TextButton.icon(
@@ -29,7 +30,7 @@ class _AllRemindersScreenState extends State<AllRemindersScreen> {
           icon: const Icon(Icons.arrow_back_ios,color: Colors.white,),
           label:  Text(
             'Lists'.tr(),
-            style:  TextStyle(fontSize: 18),
+            style:  TextStyle(fontSize: 18,color: Colors.white),
           ),
         ),
         // actions: [
@@ -53,8 +54,8 @@ class _AllRemindersScreenState extends State<AllRemindersScreen> {
                      'All'.tr(),
                      style:  TextStyle(fontSize: 22, color: Colors.grey),
                    ),
-              const SizedBox(
-                height: 10,
+               SizedBox(
+                height: 10.h,
               ),
               // Row(
               //   children: [

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 import 'package:reminder_second_project/views/widgets/reminder_item.dart';
@@ -20,7 +21,7 @@ class _TodayRemindersState extends State<TodayReminders> {
 
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 90,
+        leadingWidth: 90.w,
 
         leading: TextButton.icon(
           onPressed: () {

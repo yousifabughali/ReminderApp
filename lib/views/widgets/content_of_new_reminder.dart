@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/model/list_model.dart';
 import 'package:reminder_second_project/model/reminder_model.dart';
@@ -50,7 +51,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if(widget.listId != null) widget.listId= Provider.of<ListProvider>(context).list.first;
+    // widget.listId= Provider.of<ListProvider>(context).list.first;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -82,7 +83,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                       child:  Text('Add'.tr())),
                 ],
               ),
-              const SizedBox(height: 10),
+               SizedBox(height: 10.h),
               // Name And Note
               Container(
                 width: double.infinity,
@@ -97,8 +98,8 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                         cursorColor: Colors.white,
                         maxLines: 1,
                         controller: _titleTextEditing,
-                        decoration: const InputDecoration(
-                          hintText: 'Title',
+                        decoration:  InputDecoration(
+                          hintText: 'Title'.tr(),
                           border: InputBorder.none,
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 2),
@@ -111,8 +112,8 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                         maxLines: 4,
                         cursorColor: Colors.white,
                         controller: _contentTextEditing,
-                        decoration: const InputDecoration(
-                          hintText: 'Note',
+                        decoration:  InputDecoration(
+                          hintText:'Note'.tr(),
                           border: InputBorder.none,
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 8),
@@ -122,13 +123,13 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               // Time
                Text(
-                '  Schedule your reminder'.tr(),
+                'Schedule your reminder'.tr(),
                 style: TextStyle(color: Colors.blue),
               ),
-              const SizedBox(height: 10),
+               SizedBox(height: 10.h),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -140,12 +141,12 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                     ExpansionTile(
                       title:  Text(
                         'Date and time'.tr(),
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black.withOpacity(0.9)),
                       ),
-                      leading: const Icon(Icons.date_range),
+                      leading: const Icon(Icons.date_range,color: Colors.white,),
                       children: [
                         SizedBox(
-                          height: 200,
+                          height: 180.h,
                           child: CupertinoDatePicker(
                             initialDateTime: DateTime.now(),
                             onDateTimeChanged: (DateTime value) {
@@ -160,13 +161,13 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+               SizedBox(
+                height: 15.h,
               ),
               // choose List
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                height: 50,
+                height: 50.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.blue.withOpacity(0.90),
@@ -176,7 +177,7 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                   children: [
                     Text(
                       'Tap to Select the List'.tr(),
-                      style: TextStyle(color: Colors.blue),
+                      // style: TextStyle(color: Colors.white),
                     ),
                     // Text(result == null
                     //     ? Provider.of<ListProvider>(context).list.first.title
@@ -200,8 +201,8 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
                       onChanged: (v){
                         setState((){
                           widget.listId=v;
-                          NotificationService().showNotification(
-                              1, "Reminder App", _titleTextEditing.text,widget.day);
+                          setState((){});
+
                         });
 
                       },
@@ -222,6 +223,8 @@ class _NewReminderFirstScreenState extends State<NewReminderFirstScreen> {
 
     if (CheckData()) {
       await save();
+      NotificationService().showNotification(
+          1, "Reminder App", _titleTextEditing.text);
     }
   }
 

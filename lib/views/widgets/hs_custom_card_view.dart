@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:reminder_second_project/providers/db_reminder_provider.dart';
 
@@ -28,7 +29,7 @@ class CustomHomeScreenCard extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-        height: MediaQuery.of(context).size.height / 7,
+        height: 100.h,
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(16),
@@ -41,8 +42,8 @@ class CustomHomeScreenCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 40,
-                  width: 40,
+                  height: 40.h,
+                  width: 40.w,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: BorderRadius.circular(50),
